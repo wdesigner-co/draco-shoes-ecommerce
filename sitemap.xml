@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://shoex.example/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://shoex.example/categorias.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-001</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-002</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-003</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-004</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-005</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-006</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-007</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-008</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-009</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-010</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-011</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-012</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-013</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-014</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-015</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-016</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-017</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-018</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-019</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shoex.example/producto.html?id=SHX-020</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>

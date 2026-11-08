@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es-CO">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#121216">
+    <meta name="color-scheme" content="light">
+    <title>Mi carrito | Draco Shoes</title>
+    <meta name="description" content="Revisa tu carrito, modifica cantidades y prepara tu pedido Draco Shoes.">
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="canonical" href="https://shoex.example/carrito.html">
+    <link rel="icon" href="assets/icons/favicon.webp" type="image/webp">
+    <link rel="apple-touch-icon" href="assets/icons/favicon.webp" type="image/webp">
+    <link rel="manifest" href="site.webmanifest">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Draco Shoes">
+    <meta property="og:locale" content="es_CO">
+    <meta property="og:title" content="Mi carrito | Draco Shoes">
+    <meta property="og:description" content="Revisa tu carrito, modifica cantidades y prepara tu pedido Draco Shoes.">
+    <meta property="og:url" content="https://shoex.example/carrito.html">
+    <meta property="og:image" content="https://shoex.example/assets/images/brand/og-shoex.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Draco Shoes, colección de calzado y zapatillas">
+    <meta name="twitter:image" content="https://shoex.example/assets/images/brand/og-shoex.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mi carrito | Draco Shoes">
+    <meta name="twitter:description" content="Revisa tu carrito, modifica cantidades y prepara tu pedido Draco Shoes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
+    <script type="module" src="assets/js/main.js"></script>
+  </head>
+  <body data-page="cart">
+    <div data-include="components/site-header.html"></div>
+    <main id="main-content" class="container page-main">
+      <div class="page-title-row">
+        <div>
+          <span class="eyebrow">Tu selección</span>
+          <h1>Mi carrito</h1>
+          <p>Revisa los productos y cantidades antes de continuar.</p>
+        </div>
+        <a class="text-link" href="categorias.html">
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Seguir comprando</a></div><div class="cart-layout"><section class="cart-list-panel" aria-label="Productos del carrito"><div id="cart-items" class="cart-items"></div><div id="cart-empty" class="empty-state" hidden><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i><h2>Tu carrito está vacío</h2><p>Explora el catálogo y añade los modelos que te gusten.</p><a class="button button--primary" href="categorias.html">Explorar catálogo</a></div></section><aside class="order-summary" id="cart-summary"><h2>Resumen del pedido</h2><div class="summary-row"><span>Subtotal</span><strong data-subtotal>$0.00</strong></div><div class="summary-row"><span>Descuento</span><strong data-discount>− $0.00</strong></div><div class="summary-row"><span>Envío</span><strong data-shipping>Gratis</strong></div><form id="coupon-form" class="coupon-form"><label class="visually-hidden" for="coupon-code">Código promocional</label><input type="text" id="coupon-code" name="coupon" placeholder="Código promocional"><button type="submit">Aplicar</button></form><p class="coupon-feedback" data-applied-coupon aria-live="polite"></p><button class="text-link text-link--danger" type="button" data-remove-coupon>Quitar descuento</button><div class="summary-total"><span>Total estimado</span><strong data-total>$0.00</strong></div><a href="checkout.html" class="button button--primary button--block">Continuar al checkout <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><p class="secure-note"><i class="fa-solid fa-lock" aria-hidden="true"></i> El pago no se procesa en este prototipo.</p></aside></div></main><div data-include="components/site-footer.html"></div><div data-include="components/bottom-nav.html"></div><div data-include="components/overlays.html"></div></body></html>

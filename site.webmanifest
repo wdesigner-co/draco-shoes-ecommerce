@@ -1,0 +1,15 @@
+{
+  "name": "ShoeX — Tienda de calzado",
+  "short_name": "ShoeX",
+  "description": "Explora la colección de zapatillas ShoeX.",
+  "lang": "es-CO",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#121216",
+  "theme_color": "#ff5722",
+  "icons": [
+    { "src": "assets/icons/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" },
+    { "src": "assets/icons/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" }
+  ]
+}

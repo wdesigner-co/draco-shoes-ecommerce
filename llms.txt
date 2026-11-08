@@ -1,0 +1,32 @@
+# ShoeX
+
+> Prototipo de tienda online de zapatillas. Proyecto de demostración construido con HTML semántico, CSS y JavaScript Vanilla.
+
+## Páginas públicas
+- Inicio: https://shoex.example/
+- Catálogo: https://shoex.example/categorias.html
+- Detalles de producto: https://shoex.example/producto.html?id=SHX-001 (IDs SHX-001 a SHX-020)
+
+## Experiencia de compra
+- El catálogo ofrece 20 productos de demostración con tallas, colores y stock local.
+- Cada producto tiene tres vistas fotográficas: lateral, frontal y par completo; sus rutas se editan desde `INITIAL_PRODUCTS` y el panel demo.
+- Las creatividades publicitarias de hero móvil, hero escritorio y oferta se administran separadas de la galería de producto desde `HOME_ADS`.
+- La Home incluye beneficios ilustrativos, cinco pasos de compra, garantías de demostración y preguntas frecuentes desplegables.
+- Cada producto configura hasta tres variantes de color con nombre y tono visual editables desde el panel demo.
+- El carrito y el checkout calculan totales en el navegador.
+- El pedido final se guarda localmente y se compone un mensaje para confirmar manualmente por WhatsApp.
+- El panel de administración muestra el detalle de compra y entrega y permite avanzar Pendiente → Empacado → Procesado.
+- Al marcar Procesado, se descuenta localmente del stock la cantidad comprada; el historial del cliente refleja el estado.
+- El inventario y los pedidos permanecen en el almacenamiento del navegador; no se sincronizan entre dispositivos.
+- PayPal y Mercado Pago se muestran solo como referencias visuales; no hay pasarelas integradas.
+
+## Límites del prototipo
+No hay backend, base de datos remota, autenticación segura, inventario centralizado ni procesamiento real de pagos. Los estados logísticos y el descuento de stock son una simulación local de frontend. Las credenciales del panel se encuentran en el código frontend y no deben considerarse secretas. El panel administrador contiene Dashboard, Catálogo y Publicidad, sin un enlace público de administración en el footer; modifica datos solo en el navegador actual. Los datos comerciales, reseñas, testimonios, imágenes de calzado, dirección y contacto son de demostración y deben validarse antes de publicar.
+
+## Documentación técnica
+- README: https://shoex.example/README.md
+- Arquitectura y tecnologías: https://shoex.example/docs/ARCHITECTURE.md
+- Flujo de usuario: https://shoex.example/docs/USER_FLOW.md
+- Modelo de contenido: https://shoex.example/docs/CONTENT_MODEL.md
+
+- La versión 2.4.1 incluye sesión demo con cierre de sesión global y onboarding móvil automático de primera visita. La versión 2.5.0 añade detalle de pedidos, estados logísticos, descuento de inventario local y tres opciones de color por producto.

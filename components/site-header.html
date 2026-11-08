@@ -1,0 +1,39 @@
+<a class="skip-link" href="#main-content">Saltar al contenido</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Draco Shoes, ir al inicio">
+      <img src="assets/images/brand/Logo_Horizontal-Black.webp" srcset="assets/images/brand/Logo_Horizontal-Black.webp 2x" alt="Draco Shoes Logo" width="150" height="38">
+    </a>
+    <nav class="desktop-navigation" id="desktop-navigation" aria-label="Navegación principal">
+      <a href="index.html" data-nav-page="home">Inicio</a>
+      <a href="categorias.html" data-nav-page="categories">Catálogo</a>
+      <a href="categorias.html?category=running" data-category-link="running">Running</a>
+      <a href="categorias.html?category=lifestyle" data-category-link="lifestyle">Lifestyle</a>
+    </nav>
+    <div class="header-actions">
+        <form class="header-search" id="header-search-form" role="search">
+          <label class="visually-hidden" for="header-search-input">Buscar productos</label>
+          <input id="header-search-input" name="q" type="search" placeholder="Buscar zapatillas">
+          <button type="submit" aria-label="Buscar">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          </button>
+        </form>
+      <div class="header-session" data-session-indicator hidden>
+        <a class="header-session__role" href="perfil.html" data-session-role-link aria-label="Ir al perfil de cliente" title="Ir al perfil de cliente">
+          <i class="fa-regular fa-user" data-session-role-icon aria-hidden="true"></i>
+          <span data-session-role>Cliente</span>
+        </a>
+        <button class="header-session__logout" type="button" data-auth-logout aria-label="Cerrar sesión" title="Cerrar sesión">
+          <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>
+        </button>
+      </div>
+      <a class="header-icon" href="favoritos.html" aria-label="Favoritos" data-nav-page="favorites">
+        <i class="fa-regular fa-heart" aria-hidden="true"></i>
+      </a>
+      <a class="header-icon header-cart" href="carrito.html" aria-label="Carrito" data-nav-page="cart">
+        <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+        <span class="cart-badge" data-cart-count hidden>0</span>
+      </a>
+    </div>
+  </div>
+</header>

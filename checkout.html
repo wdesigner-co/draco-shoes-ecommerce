@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es-CO">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#121216">
+    <meta name="color-scheme" content="light">
+    <title>Checkout | Draco Shoes</title>
+    <meta name="description" content="Completa tus datos de envío y confirma tu pedido ShoeX por WhatsApp.">
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="canonical" href="https://shoex.example/checkout.html">
+    <link rel="icon" href="assets/icons/favicon.webp" type="image/webp">
+    <link rel="apple-touch-icon" href="assets/icons/favicon.webp" type="image/webp">
+    <link rel="manifest" href="site.webmanifest">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Draco Shoes">
+    <meta property="og:locale" content="es_CO">
+    <meta property="og:title" content="Checkout | Draco Shoes">
+    <meta property="og:description" content="Completa tus datos de envío y confirma tu pedido ShoeX por WhatsApp.">
+    <meta property="og:url" content="https://shoex.example/checkout.html">
+    <meta property="og:image" content="https://shoex.example/assets/images/brand/og-shoex.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ShoeX, colección de calzado y zapatillas">
+    <meta name="twitter:image" content="https://shoex.example/assets/images/brand/og-shoex.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Checkout | Draco Shoes">
+    <meta name="twitter:description" content="Completa tus datos de envío y confirma tu pedido ShoeX por WhatsApp.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
+    <script type="module" src="assets/js/main.js"></script>
+  </head>
+  <body data-page="checkout">
+    <div data-include="components/site-header.html"></div>
+    <main id="main-content" class="container page-main">
+      <div class="page-title-row">
+        <div><span class="eyebrow">Último paso</span>
+          <h1>Finalizar compra</h1>
+          <p>Completa tus datos para preparar el pedido y confirmarlo con el vendedor.</p>
+        </div>
+        <div class="checkout-steps"><span class="is-done">1. Carrito</span><span class="is-current">2. Datos</span><span>3. Confirmación</span></div></div><div id="checkout-empty" class="empty-state" hidden><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i><h2>No tienes productos para comprar</h2><a class="button button--primary" href="categorias.html">Volver al catálogo</a></div><div class="checkout-layout"><form id="checkout-form" class="checkout-form"><section class="checkout-section"><div class="checkout-section__heading"><span>01</span><div><h2>Datos de contacto</h2><p>Usaremos estos datos para coordinar tu pedido.</p></div></div><div class="form-grid"><label>Nombre completo<input name="name" type="text" autocomplete="name" required maxlength="100" placeholder="Nombre y apellido"></label><label>Correo electrónico<input name="email" type="email" autocomplete="email" required placeholder="correo@ejemplo.com"></label><label>Teléfono / WhatsApp<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required minlength="7" maxlength="20" placeholder="+57 300 000 0000"></label></div></section><section class="checkout-section"><div class="checkout-section__heading"><span>02</span><div><h2>Dirección de entrega</h2><p>Indica dónde deseas recibir tu pedido.</p></div></div><div class="form-grid"><label class="form-span">Dirección<input name="address" type="text" autocomplete="street-address" required maxlength="160" placeholder="Calle, carrera, número, barrio"></label><label>Ciudad<input name="city" type="text" autocomplete="address-level2" required maxlength="80"></label><label>Departamento / Estado<input name="department" type="text" autocomplete="address-level1" required maxlength="80"></label><label>Código postal <small>(opcional)</small><input name="postalCode" type="text" autocomplete="postal-code" maxlength="15"></label><label class="form-span">Notas para la entrega<textarea name="notes" rows="3" maxlength="500" placeholder="Indicaciones adicionales (opcional)"></textarea></label></div></section><section class="checkout-section"><div class="checkout-section__heading"><span>03</span><div><h2>Método de pago</h2><p>En este prototipo solo está habilitada la confirmación por WhatsApp.</p></div></div><div class="payment-methods"><button type="button" class="payment-method" data-payment-unavailable="PayPal"><i class="fa-brands fa-paypal" aria-hidden="true"></i><span>PayPal</span><small>No habilitado</small></button><button type="button" class="payment-method" data-payment-unavailable="Mercado Pago"><i class="fa-solid fa-wallet" aria-hidden="true"></i><span>Mercado Pago</span><small>No habilitado</small></button><div class="payment-method payment-method--whatsapp is-selected" aria-label="WhatsApp, único método habilitado"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span><small>Confirmación manual</small></div></div></section><label class="terms-check"><input type="checkbox" name="terms" required><span>Confirmo que los datos suministrados son correctos y acepto que el vendedor me contacte para coordinar el pedido.</span></label><button class="button button--primary button--block checkout-submit" type="submit"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Crear pedido y continuar por WhatsApp</button><p class="helper-text">No se realiza ningún cobro. El pedido queda pendiente hasta que el vendedor confirme disponibilidad y entrega.</p></form><aside class="order-summary checkout-summary"><h2>Tu pedido</h2><ul id="checkout-items" class="checkout-items"></ul><div class="summary-row"><span>Subtotal</span><strong data-checkout-subtotal>$0.00</strong></div><div class="summary-row"><span>Descuento</span><strong data-checkout-discount>− $0.00</strong></div><div class="summary-row"><span>Envío</span><strong data-checkout-shipping>Gratis</strong></div><div class="summary-total"><span>Total</span><strong data-checkout-total>$0.00</strong></div><p class="secure-note"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Pedido de demostración · sin pasarela de pago</p></aside></div></main><div data-include="components/site-footer.html"></div><div data-include="components/bottom-nav.html"></div><div data-include="components/overlays.html"></div></body></html>

@@ -1,0 +1,78 @@
+<div class="toast" id="app-toast" role="status" aria-live="polite" aria-atomic="true" aria-hidden="true">
+  <i data-toast-icon class="fa-solid fa-circle-check" aria-hidden="true"></i><span data-toast-message>Listo</span>
+</div>
+
+<dialog class="app-modal" id="app-modal" aria-labelledby="app-modal-title">
+  <div class="modal-panel">
+    <button class="modal-close" type="button" data-modal-close aria-label="Cerrar ventana"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <div class="modal-icon"><i class="fa-solid fa-circle-info" aria-hidden="true"></i></div>
+    <h2 id="app-modal-title" data-modal-title>Información</h2>
+    <p data-modal-message></p>
+    <button class="button button--primary" type="button" data-modal-close>Entendido</button>
+  </div>
+</dialog>
+
+<dialog class="app-modal auth-modal" id="auth-modal" aria-labelledby="auth-title">
+  <div class="modal-panel auth-modal__panel">
+    <button class="modal-close" type="button" data-auth-close aria-label="Cerrar autenticación"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <div class="modal-icon"><i class="fa-solid fa-user-lock" aria-hidden="true"></i></div>
+    <span class="eyebrow" data-auth-eyebrow>Tu cuenta Draco Shoes</span>
+    <h2 id="auth-title" data-auth-title>Bienvenido</h2>
+    <p data-auth-copy>Ingresa para continuar.</p>
+    <div class="auth-tabs" data-auth-tabs role="tablist" aria-label="Tipo de acceso">
+      <button type="button" class="is-active" data-auth-tab="login" role="tab" aria-selected="true">Iniciar sesión</button>
+      <button type="button" data-auth-tab="register" role="tab" aria-selected="false">Registrarme</button>
+    </div>
+    <form id="auth-form" class="auth-form">
+      <div class="auth-fields" data-auth-fields></div>
+      <button class="button button--primary button--block" type="submit" data-auth-submit>Iniciar sesión</button>
+    </form>
+    <button class="button button--outline button--block auth-google" type="button" data-auth-google><i class="fa-brands fa-google" aria-hidden="true"></i> Continuar con Google</button>
+    <p class="auth-demo-note" data-auth-note>Acceso de demostración: los datos no se envían a un servidor.</p>
+    <p class="auth-feedback" data-auth-feedback role="status" aria-live="polite"></p>
+  </div>
+</dialog>
+
+<dialog class="app-modal share-modal" id="share-modal" aria-labelledby="share-modal-title">
+  <div class="modal-panel share-modal__panel">
+    <button class="modal-close" type="button" data-modal-close aria-label="Cerrar opciones para compartir"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <div class="modal-icon"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i></div>
+    <h2 id="share-modal-title">Compartir producto</h2>
+    <p>Envía este modelo a quien quieras o copia el enlace para compartirlo después.</p>
+    <div class="share-options">
+      <a class="share-option share-option--whatsapp" data-share-whatsapp href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a>
+      <a class="share-option share-option--facebook" data-share-facebook href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i><span>Facebook</span></a>
+      <a class="share-option share-option--x" data-share-x href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i><span>X</span></a>
+      <button class="share-option share-option--copy" type="button" data-copy-product-link><i class="fa-solid fa-link" aria-hidden="true"></i><span>Copiar vínculo</span></button>
+    </div>
+    <button class="button button--outline button--block share-native" type="button" data-share-native><i class="fa-solid fa-arrow-up-from-bracket" aria-hidden="true"></i> Más opciones de compartir</button>
+  </div>
+</dialog>
+
+<dialog class="app-modal size-guide-modal" id="size-guide-modal" aria-labelledby="size-guide-title">
+  <div class="modal-panel size-guide-modal__panel">
+    <button class="modal-close" type="button" data-modal-close aria-label="Cerrar guía de tallas"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <div class="modal-icon"><i class="fa-solid fa-ruler-combined" aria-hidden="true"></i></div>
+    <h2 id="size-guide-title">Guía de tallas</h2>
+    <p>Equivalencias aproximadas para calzado adulto. La horma puede variar según el fabricante.</p>
+    <div class="size-guide-table-wrap">
+      <table class="size-guide-table" aria-label="Equivalencias aproximadas de tallas de calzado">
+        <thead><tr><th scope="col">EU</th><th scope="col">US Hombre</th><th scope="col">US Mujer</th><th scope="col">CM</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">36</th><td>4</td><td>5.5</td><td>23</td></tr>
+          <tr><th scope="row">37</th><td>5</td><td>6.5</td><td>23.5</td></tr>
+          <tr><th scope="row">38</th><td>5.5</td><td>7</td><td>24</td></tr>
+          <tr><th scope="row">39</th><td>6.5</td><td>8</td><td>25</td></tr>
+          <tr><th scope="row">40</th><td>7</td><td>8.5</td><td>25.5</td></tr>
+          <tr><th scope="row">41</th><td>8</td><td>9.5</td><td>26</td></tr>
+          <tr><th scope="row">42</th><td>8.5</td><td>10</td><td>27</td></tr>
+          <tr><th scope="row">43</th><td>9.5</td><td>11</td><td>27.5</td></tr>
+          <tr><th scope="row">44</th><td>10</td><td>11.5</td><td>28</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="size-guide-note">Consejo: mide ambos pies al final del día y utiliza la medida mayor como referencia.</p>
+    <button class="button button--primary button--block" type="button" data-modal-close>Entendido</button>
+  </div>
+</dialog>
+

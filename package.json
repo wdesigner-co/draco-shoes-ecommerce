@@ -1,0 +1,11 @@
+{
+  "name": "draco-shoes-ecommerce",
+  "version": "2.5.1",
+  "private": true,
+  "description": "Draco Shoes - Prototipo ecommerce desarrollado con HTML, CSS y JavaScript Vanilla",
+  "type": "module",
+  "scripts": {
+    "dev": "node tools/serve.mjs",
+    "start": "node tools/serve.mjs"
+  }
+}

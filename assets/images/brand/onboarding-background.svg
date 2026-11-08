@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1080" height="1920" viewBox="0 0 1080 1920" role="img" aria-labelledby="title desc">
+  <title id="title">ShoeX — Step into style</title>
+  <desc id="desc">Composición vertical oscura con iluminación naranja y zapatilla deportiva en el centro.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.12" y2="1"><stop stop-color="#0d0f14"/><stop offset=".48" stop-color="#242630"/><stop offset="1" stop-color="#101116"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#ff5722" stop-opacity=".42"/><stop offset="1" stop-color="#ff5722" stop-opacity="0"/></radialGradient>
+    <linearGradient id="upper" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#343943"/><stop offset="1" stop-color="#171a20"/></linearGradient>
+    <linearGradient id="sole" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#bfc2c7"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-50%" width="160%" height="220%"><feGaussianBlur stdDeviation="24"/></filter>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+  <ellipse cx="560" cy="940" rx="590" ry="650" fill="url(#glow)"/>
+  <circle cx="840" cy="510" r="280" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="2"/>
+  <circle cx="840" cy="510" r="210" fill="none" stroke="#ff5722" stroke-opacity=".2" stroke-width="2"/>
+  <path d="M0 1320 Q300 1220 560 1320 T1080 1310 V1920 H0Z" fill="#101116" fill-opacity=".22"/>
+  <ellipse cx="552" cy="1210" rx="420" ry="54" fill="#000" opacity=".48" filter="url(#shadow)"/>
+  <g transform="translate(-8 730) scale(1.92) rotate(-4 300 180)">
+    <path d="M79 218 Q120 239 170 237 L456 237 Q513 237 542 218 L546 236 Q529 265 472 270 L163 270 Q93 266 68 239Z" fill="url(#sole)" stroke="#aaaeb5" stroke-width="4"/>
+    <path d="M80 239 Q175 255 278 250 Q410 251 535 235" stroke="#aeb2b9" stroke-width="5" fill="none"/>
+    <path d="M112 157 L134 82 Q140 62 160 66 L217 78 L253 111 Q292 134 361 142 Q427 150 500 165 Q531 171 541 193 L536 222 Q510 245 450 245 L154 245 Q98 239 78 211 Q69 197 86 180Z" fill="url(#upper)" stroke="#111318" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M134 84 Q166 76 214 94 L225 126 L154 133Z" fill="#ff5722" opacity=".92"/>
+    <path d="M91 183 Q147 181 178 158 L230 127 Q253 116 278 140 Q306 164 354 167" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="5"/>
+    <path d="M130 200 Q183 194 223 173 Q253 157 287 173" fill="none" stroke="#ff5722" stroke-width="9" stroke-linecap="round"/>
+    <path d="M275 153 Q337 166 387 175 Q345 185 296 179 Q263 176 232 191 Q256 163 275 153Z" fill="#ff5722"/>
+    <path d="M200 132 l30 16 M213 139 l30 16 M226 146 l30 16 M239 153 l30 16" stroke="#f8f7f4" stroke-width="5" stroke-linecap="round"/>
+    <path d="M200 129 Q213 118 231 123 L267 141" fill="none" stroke="#f8f7f4" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <g fill="#ff5722" opacity=".7"><circle cx="165" cy="650" r="5"/><circle cx="905" cy="1180" r="4"/><circle cx="210" cy="1400" r="3"/></g>
+</svg>
