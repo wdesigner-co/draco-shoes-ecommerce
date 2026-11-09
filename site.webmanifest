@@ -1,7 +1,7 @@
 {
-  "name": "ShoeX — Tienda de calzado",
-  "short_name": "ShoeX",
-  "description": "Explora la colección de zapatillas ShoeX.",
+  "name": "Draco Shoes — Tienda de calzado",
+  "short_name": "Draco Shoes",
+  "description": "Explora la colección de zapatillas Draco Shoes.",
   "lang": "es-CO",
   "start_url": "/",
   "scope": "/",
@@ -9,7 +9,7 @@
   "background_color": "#121216",
   "theme_color": "#ff5722",
   "icons": [
-    { "src": "assets/icons/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" },
-    { "src": "assets/icons/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" }
+    { "src": "assets/icons/favicon.webp", "sizes": "any", "type": "image/webp", "purpose": "any maskable" },
+    { "src": "assets/icons/favicon.webp", "sizes": "180x180", "type": "image/webp", "purpose": "any" }
   ]
 }

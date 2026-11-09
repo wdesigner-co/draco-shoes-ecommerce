@@ -957,7 +957,7 @@ export const HOME_ADS = [
     eyebrow: 'Retro collection · 2026',
     title: 'Step into your style.',
     titleAccent: 'your style.',
-    description: 'Encuentra zapatillas que acompañan tu ritmo. Diseño, comodidad y carácter en cada paso.',
+    description: 'Encuentra zapatos que acompañan tu ritmo. Diseño, comodidad y carácter en cada paso.',
     image: 'assets/images/ads/AirJordan.webp',
     alt: 'Creatividad editorial de la colección Draco Shoes para escritorio',
     ctaLabel: 'Explorar colección',

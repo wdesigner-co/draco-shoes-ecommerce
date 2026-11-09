@@ -4,14 +4,14 @@
  */
 export const CONFIG = {
   storeName: 'Draco Shoes',
-  currency: 'USD',
+  currency: 'COP',
   locale: 'es-CO',
   sellerWhatsApp: '573043656927', // Número ficticio de ejemplo: usar solo dígitos y código de país.
   demoAdminEmail: 'admin@shoex.demo',
   demoAdminPassword: 'shoex2026',
   mapSearchQuery: '10.772510, -73.006374', // Coordenadas de ejemplo: latitud, longitud.
   supportEmail: 'ventas@shoex.example',
-  siteUrl: 'https://shoex.example',
+  siteUrl: 'https://draco-shoes-ecommerce.vercel.app/',
   freeShipping: true,
   shippingFee: 0,
   promoCode: 'SHOE10',
