@@ -49,6 +49,16 @@ export function initProduct() {
       <button class="product-gallery__back" type="button" data-product-back aria-label="Volver a la página anterior">
         <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
       </button>
+
+      <a class="product-gallery__cart"
+      href="carrito.html"
+      aria-label="Abrir carrito de compras"
+      title="Ver carrito">
+      <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+      <span class="cart-badge" data-cart-count hidden>0</span>
+      </a>
+
+
       <div class="product-gallery__track" data-gallery-track tabindex="0" aria-label="Galería de imágenes de ${escapeHTML(product.name)}">
         ${galleryImages.map((galleryImage, index) => `
           <figure class="product-gallery__slide product-gallery__slide--${index + 1}" data-gallery-slide="${index}">
@@ -133,6 +143,9 @@ export function initProduct() {
         <p>Materiales y especificaciones finales: datos demostrativos pendientes de validar.</p>
       </details>
     </section>`;
+
+    // Actualiza el contador del nuevo acceso al carrito de la ficha.
+document.dispatchEvent(new CustomEvent('shoex:cart-updated'));
 
   // En móvil, muestra la navegación inferior después de abandonar la zona inicial del producto.
   const initMobileProductNavigation = () => {
