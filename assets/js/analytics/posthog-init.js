@@ -31,6 +31,7 @@
       api_host: "https://us.i.posthog.com",
       defaults: "2026-08-30",
       autocapture: true,
+      enable_heatmaps: true,
       capture_heatmaps: true,
       capture_pageview: true,
       capture_pageleave: true
