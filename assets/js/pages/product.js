@@ -120,20 +120,12 @@ export function initProduct() {
     </div>`;
 
   const renderGallery = (resetPosition = true) => {
-    const track = root.querySelector('[data-gallery-track]');
-    const wrapper = document.createElement('div');
-    wrapper.innerHTML = galleryMarkup();
-    const existingTrack = track;
-    if (existingTrack) {
-      const holder = document.createElement('div');
-      holder.innerHTML = wrapper.innerHTML;
-      existingTrack.replaceWith(holder.firstElementChild);
-      existingTrack.nextElementSibling?.remove();
-      existingTrack.nextElementSibling?.remove();
-    } else {
-      const gallery = root.querySelector('.product-detail__gallery');
-      gallery.insertAdjacentHTML('beforeend', wrapper.innerHTML);
-    }
+    const gallery = root.querySelector('.product-detail__gallery');
+    gallery.querySelector('[data-gallery-track]')?.remove();
+    gallery.querySelector('[data-gallery-prev]')?.remove();
+    gallery.querySelector('[data-gallery-next]')?.remove();
+    gallery.querySelector('.product-gallery__pagination')?.remove();
+    gallery.insertAdjacentHTML('beforeend', galleryMarkup());
     activeGalleryIndex = 0;
     const newTrack = root.querySelector('[data-gallery-track]');
     if (resetPosition && newTrack) newTrack.scrollLeft = 0;
