@@ -198,6 +198,34 @@ export const INITIAL_PRODUCTS = [
       "#141413",
       "#315c9a"
     ],
+    "colorVariants": [
+      {
+        "id": "SHX-005-white",
+        "name": "Blanco / Gris",
+        "colorHex": "#e9ecf3",
+        "images": {
+          "side": "assets/images/products/Nike-Aair-Force-White-LateralDer.png",
+          "front": "assets/images/products/Nike-Aair-Force-White-LateralIzq.png",
+          "pair": "assets/images/products/Nike-Aair-Force-White-Par.png"
+        }
+      },
+      {
+        "id": "SHX-005-black",
+        "name": "Negro / Naranja",
+        "colorHex": "#141413",
+        "images": {
+          "side": "assets/images/products/Nike-Aair-Force-Black-LateralDer.png",
+          "front": "assets/images/products/Nike-Aair-Force-Black-LateralIzq.png",
+          "pair": "assets/images/products/Nike-Aair-Force-Black-Par.png"
+        }
+      },
+      {
+        "id": "SHX-005-blue",
+        "name": "Azul / Blanco",
+        "colorHex": "#315c9a",
+        "images": { "side": "", "front": "", "pair": "" }
+      }
+    ],
     "sizes": [
       36,
       37,
