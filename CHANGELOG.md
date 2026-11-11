@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.6.0 — Acceso de cuenta, teléfono internacional y galería por variantes
+
+- El encabezado de escritorio mantiene visible el acceso de usuario sin sesión; al activarlo abre el modal de autenticación existente.
+- Con una sesión demo activa, el botón identifica Cliente o Administrador y despliega el acceso al perfil/panel y la opción de cerrar sesión. El menú admite clic exterior, Escape y navegación con flechas.
+- El perfil separa prefijo internacional (+1 Estados Unidos, +57 Colombia, +58 Venezuela) y número; mantiene el campo `phone` concatenado para compatibilidad con checkout e historial anterior.
+- La galería de producto permite ampliar la imagen en un visor modal, navegar por las tres vistas con flechas en escritorio, botones en el visor y gestos táctiles en móvil.
+- Las opciones de color se presentan como miniaturas; cada variante puede guardar sus propias vistas lateral, frontal y del par.
+- El administrador permite editar las tres imágenes de cada color adicional. Las rutas deben estar completas (tres) o quedar vacías; la ficha conserva la galería general y muestra un aviso mientras falten imágenes propias.
+- El carrito y la instantánea del pedido conservan la imagen correspondiente al color seleccionado.
+- Se incorporaron dos galerías reales de color para Nike Air Force 1 (SHX-005), reutilizando imágenes ya incluidas en el repositorio.
+- El alcance continúa siendo una demostración frontend: autenticación y cambios del administrador siguen siendo locales al navegador, sin backend, OAuth ni persistencia de catálogo compartida entre usuarios.
+
 ## 2.5.1 — Acceso rápido al espacio de sesión y entrada animada del Hero
 - El indicador de sesión del encabezado ahora es un enlace accesible: «Cliente» lleva a `perfil.html` y «Administrador» lleva a `admin.html`, según el rol activo.
 - Se conserva el mismo componente visual y el botón de cierre de sesión; no se añade un icono adicional ni un enlace público de administración.

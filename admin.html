@@ -115,12 +115,30 @@
         <div class="admin-image-field"><label>Vista frontal<input name="imageFront" type="text" required placeholder="assets/images/products/modelo-frontal.webp"></label><img data-admin-image-preview="imageFront" alt="Vista previa frontal" loading="lazy"></div>
         <div class="admin-image-field"><label>Vista del par (dos zapatos)<input name="imagePair" type="text" required placeholder="assets/images/products/modelo-par.webp"></label><img data-admin-image-preview="imagePair" alt="Vista previa del par" loading="lazy"></div>
         <fieldset class="admin-color-fieldset form-span">
-          <legend>Colores disponibles (hasta 3 opciones)</legend>
-          <p class="helper-text">Configura el nombre y el tono de cada variante. Las opciones vacías no aparecerán en la ficha del producto.</p>
+          <legend>Colores y galerías por variante (hasta 3 opciones)</legend>
+          <p class="helper-text">La primera variante utiliza las tres imágenes principales. Para cada color adicional registra sus vistas lateral, frontal y del par. Las tres rutas de una variante deben estar completas o quedar vacías.</p>
           <div class="admin-color-grid">
-            <div class="admin-color-row"><label>Color 1 · nombre<input name="color1" required maxlength="40" placeholder="Negro / Naranja"></label><label>Color 1 · tono<input name="colorHex1" type="color" value="#292d35" aria-label="Tono del color 1"></label></div>
-            <div class="admin-color-row"><label>Color 2 · nombre<input name="color2" maxlength="40" placeholder="Blanco / Gris"></label><label>Color 2 · tono<input name="colorHex2" type="color" value="#e7e4dd" aria-label="Tono del color 2"></label></div>
+            <div class="admin-color-row"><label>Color 1 · nombre<input name="color1" required maxlength="40" placeholder="Blanco / Gris"></label><label>Color 1 · tono<input name="colorHex1" type="color" value="#292d35" aria-label="Tono del color 1"></label></div>
+            <div class="admin-color-row"><label>Color 2 · nombre<input name="color2" maxlength="40" placeholder="Negro / Naranja"></label><label>Color 2 · tono<input name="colorHex2" type="color" value="#e7e4dd" aria-label="Tono del color 2"></label></div>
             <div class="admin-color-row"><label>Color 3 · nombre<input name="color3" maxlength="40" placeholder="Azul / Blanco"></label><label>Color 3 · tono<input name="colorHex3" type="color" value="#315c9a" aria-label="Tono del color 3"></label></div>
+          </div>
+          <div class="admin-variant-gallery-grid">
+            <fieldset class="admin-variant-gallery">
+              <legend>Galería del color 2</legend>
+              <div class="admin-variant-gallery__fields">
+                <label>Vista lateral<input name="color2Side" type="text" placeholder="assets/images/products/color2-lateral.webp"><img data-admin-variant-preview="color2Side" alt="Vista lateral del color 2" hidden></label>
+                <label>Vista frontal<input name="color2Front" type="text" placeholder="assets/images/products/color2-frontal.webp"><img data-admin-variant-preview="color2Front" alt="Vista frontal del color 2" hidden></label>
+                <label>Vista del par<input name="color2Pair" type="text" placeholder="assets/images/products/color2-par.webp"><img data-admin-variant-preview="color2Pair" alt="Vista del par del color 2" hidden></label>
+              </div>
+            </fieldset>
+            <fieldset class="admin-variant-gallery">
+              <legend>Galería del color 3</legend>
+              <div class="admin-variant-gallery__fields">
+                <label>Vista lateral<input name="color3Side" type="text" placeholder="assets/images/products/color3-lateral.webp"><img data-admin-variant-preview="color3Side" alt="Vista lateral del color 3" hidden></label>
+                <label>Vista frontal<input name="color3Front" type="text" placeholder="assets/images/products/color3-frontal.webp"><img data-admin-variant-preview="color3Front" alt="Vista frontal del color 3" hidden></label>
+                <label>Vista del par<input name="color3Pair" type="text" placeholder="assets/images/products/color3-par.webp"><img data-admin-variant-preview="color3Pair" alt="Vista del par del color 3" hidden></label>
+              </div>
+            </fieldset>
           </div>
         </fieldset>
         <label class="form-span">Descripción<textarea name="description" rows="3" maxlength="500" required></textarea></label>

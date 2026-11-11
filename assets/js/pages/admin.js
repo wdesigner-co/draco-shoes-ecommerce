@@ -210,13 +210,24 @@ export function initAdmin() {
       colorHex1: product.colorHexes?.[0] || '#292d35',
       colorHex2: product.colorHexes?.[1] || '#e7e4dd',
       colorHex3: product.colorHexes?.[2] || '#315c9a',
+      color2Side: product.colorVariants?.[1]?.images?.side || '',
+      color2Front: product.colorVariants?.[1]?.images?.front || '',
+      color2Pair: product.colorVariants?.[1]?.images?.pair || '',
+      color3Side: product.colorVariants?.[2]?.images?.side || '',
+      color3Front: product.colorVariants?.[2]?.images?.front || '',
+      color3Pair: product.colorVariants?.[2]?.images?.pair || '',
       description: product.description
     };
 
     Object.entries(fields).forEach(([fieldName, value]) => {
-      form.elements.namedItem(fieldName).value = value ?? '';
-      const preview = form.querySelector(`[data-admin-image-preview="${fieldName}"]`);
-      if (preview) preview.src = safeImageUrl(value);
+      const input = form.elements.namedItem(fieldName);
+      if (input) input.value = value ?? '';
+      const preview = form.querySelector(`[data-admin-image-preview="${fieldName}"]`)
+        || form.querySelector(`[data-admin-variant-preview="${fieldName}"]`);
+      if (preview) {
+        preview.hidden = !value;
+        if (value) preview.src = safeImageUrl(value);
+      }
     });
 
     document.querySelector('#admin-form-title').textContent = `Editar ${product.name}`;
@@ -249,16 +260,24 @@ export function initAdmin() {
     if (button) openAdEditor(button.dataset.editAd);
   });
 
-  /** Actualiza la miniatura cuando se edita la ruta de cualquiera de las tres vistas. */
-  ['image', 'imageFront', 'imagePair'].forEach((fieldName) => {
+  /** Actualiza las previsualizaciones de las galerías principal y alternativas. */
+  [
+    'image', 'imageFront', 'imagePair',
+    'color2Side', 'color2Front', 'color2Pair',
+    'color3Side', 'color3Front', 'color3Pair'
+  ].forEach((fieldName) => {
     const input = form.elements.namedItem(fieldName);
-    input.addEventListener('input', () => {
-      const preview = form.querySelector(`[data-admin-image-preview="${fieldName}"]`);
-      if (preview) preview.src = safeImageUrl(input.value);
+    input?.addEventListener('input', () => {
+      const preview = form.querySelector(`[data-admin-image-preview="${fieldName}"]`)
+        || form.querySelector(`[data-admin-variant-preview="${fieldName}"]`);
+      if (!preview) return;
+      preview.hidden = !input.value.trim();
+      if (input.value.trim()) preview.src = safeImageUrl(input.value);
     });
   });
 
   /** Valida y guarda el producto en el almacenamiento local de demostración. */
+  /** Valida y guarda ficha, colores y galerías independientes en el catálogo local. */
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!form.reportValidity()) return;
@@ -271,27 +290,72 @@ export function initAdmin() {
     const imageFields = ['image', 'imageFront', 'imagePair'];
     const invalidImage = imageFields.find((field) => !imagePathIsAllowed(String(data[field] || '').trim()));
     if (invalidImage) {
-      showToast('Usa una ruta assets/ o una URL HTTPS en las tres imágenes.', 'error');
+      showToast('Usa una ruta assets/ o una URL HTTPS en las tres imágenes principales.', 'error');
       form.elements.namedItem(invalidImage).focus();
       return;
     }
 
-    const colorOptions = [1, 2, 3]
-      .map((index) => ({
-        name: String(data[`color${index}`] || '').trim(),
-        hex: String(data[`colorHex${index}`] || '').trim()
-      }))
-      .filter((option) => option.name);
-    if (!colorOptions.length) {
-      showToast('Configura al menos un color para el producto.', 'error');
+    const colorSlots = [1, 2, 3].map((index) => ({
+      index,
+      name: String(data['color' + index] || '').trim(),
+      hex: String(data['colorHex' + index] || '').trim()
+    }));
+    if (!colorSlots[0].name) {
+      showToast('El producto debe tener al menos un color.', 'error');
       form.elements.namedItem('color1').focus();
       return;
     }
-    const colors = colorOptions.map((option) => option.name);
-    const colorHexes = colorOptions.map((option, index) => (
-      /^#[0-9a-f]{6}$/i.test(option.hex) ? option.hex : ['#292d35', '#e7e4dd', '#315c9a'][index]
-    ));
-    ['color1', 'color2', 'color3', 'colorHex1', 'colorHex2', 'colorHex3'].forEach((field) => delete data[field]);
+    if (colorSlots[2].name && !colorSlots[1].name) {
+      showToast('Configura el color 2 antes de agregar el color 3.', 'error');
+      form.elements.namedItem('color2').focus();
+      return;
+    }
+    const activeColorSlots = colorSlots.filter((slot) => slot.name);
+
+    const colorVariants = activeColorSlots.map((slot, index) => {
+      const number = slot.index;
+      const images = number === 1
+        ? {
+          side: String(data.image || '').trim(),
+          front: String(data.imageFront || '').trim(),
+          pair: String(data.imagePair || '').trim()
+        }
+        : {
+          side: String(data['color' + number + 'Side'] || '').trim(),
+          front: String(data['color' + number + 'Front'] || '').trim(),
+          pair: String(data['color' + number + 'Pair'] || '').trim()
+        };
+      return {
+        id: activeId + '-color-' + number,
+        name: slot.name,
+        colorHex: /^#[0-9a-f]{6}$/i.test(slot.hex) ? slot.hex : ['#292d35', '#e7e4dd', '#315c9a'][index],
+        images
+      };
+    });
+
+    for (let index = 1; index < colorVariants.length; index += 1) {
+      const variant = colorVariants[index];
+      const values = Object.values(variant.images);
+      const hasAnyImage = values.some(Boolean);
+      const hasAllImages = values.every(Boolean);
+      if (hasAnyImage && !hasAllImages) {
+        showToast('Completa las tres vistas de ' + variant.name + ' o deja sus tres rutas vacías.', 'error');
+        form.elements.namedItem('color' + (index + 1) + 'Side').focus();
+        return;
+      }
+      if (values.some((value) => value && !imagePathIsAllowed(value))) {
+        showToast('Las imágenes de variante deben usar rutas assets/ o URLs HTTPS.', 'error');
+        return;
+      }
+    }
+
+    const colors = colorVariants.map((variant) => variant.name);
+    const colorHexes = colorVariants.map((variant) => variant.colorHex);
+    [
+      'color1', 'color2', 'color3', 'colorHex1', 'colorHex2', 'colorHex3',
+      'color2Side', 'color2Front', 'color2Pair',
+      'color3Side', 'color3Front', 'color3Pair'
+    ].forEach((field) => delete data[field]);
 
     const updatedProducts = getProducts().map((product) => (
       product.id === activeId
@@ -306,6 +370,7 @@ export function initAdmin() {
           imagePair: String(data.imagePair).trim(),
           colors,
           colorHexes,
+          colorVariants,
           color: colors[0]
         }
         : product
@@ -314,7 +379,7 @@ export function initAdmin() {
     saveProducts(updatedProducts);
     renderProducts();
     closeProductEditor();
-    showToast('Producto actualizado en este navegador.');
+    showToast('Producto y galerías de color actualizados en este navegador.');
   });
 
   /** Valida los datos publicitarios y guarda la creatividad en el estado local. */

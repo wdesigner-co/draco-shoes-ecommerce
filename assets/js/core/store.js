@@ -90,7 +90,7 @@ export function saveCart(items) {
 }
 
 /** Añade una variante al carrito y valida el stock disponible. */
-export function addToCart(productId, size, color, quantity = 1) {
+export function addToCart(productId, size, color, quantity = 1, selectedImage = '') {
   const product = getProduct(productId);
   if (!product) return { ok: false, message: 'No encontramos este producto.' };
   const availableStock = Number(product.stock);
@@ -116,10 +116,12 @@ export function addToCart(productId, size, color, quantity = 1) {
     return { ok: false, message: `Disponibles para todas las variantes: ${availableStock} unidades.` };
   }
 
+  const image = String(selectedImage || product.image || '').trim();
   if (existingItem) {
     existingItem.quantity += requestedQuantity;
+    if (image) existingItem.image = image;
   } else {
-    cart.push({ productId, size: String(size), color, quantity: requestedQuantity });
+    cart.push({ productId, size: String(size), color, quantity: requestedQuantity, image });
   }
 
   saveCart(cart);
@@ -176,11 +178,14 @@ export function clearCart() {
 export function getCartItems() {
   const products = getProducts();
   return getCart()
-    .map((item, index) => ({
-      ...item,
-      index,
-      product: products.find((product) => product.id === item.productId)
-    }))
+    .map((item, index) => {
+      const product = products.find((entry) => entry.id === item.productId);
+      return {
+        ...item,
+        index,
+        product: product ? { ...product, image: item.image || product.image } : null
+      };
+    })
     .filter((item) => item.product);
 }
 
@@ -207,6 +212,8 @@ export function getProfile() {
     name: '',
     email: '',
     phone: '',
+    phoneCountryCode: '+57',
+    phoneNumber: '',
     address: '',
     city: '',
     department: '',
@@ -304,7 +311,7 @@ export function createOrder(customer, notes = '') {
       size: item.size,
       color: item.color,
       lineTotal: Number(item.product.price) * item.quantity,
-      image: item.product.image
+      image: item.image || item.product.image
     })),
     totals
   };

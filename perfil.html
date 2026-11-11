@@ -80,9 +80,17 @@
             <label>Correo electrónico
               <input name="email" type="email" autocomplete="email">
             </label>
-            <label>Teléfono
-              <input name="phone" type="tel" autocomplete="tel">
-            </label>
+            <div class="phone-field form-span">
+              <label for="profile-phone-number">Teléfono</label>
+              <div class="phone-input-group">
+                <select id="profile-phone-country" name="phoneCountryCode" autocomplete="tel-country-code" aria-label="Prefijo telefónico">
+                  <option value="+1">🇺🇸 +1 Estados Unidos</option>
+                  <option value="+57" selected>🇨🇴 +57 Colombia</option>
+                  <option value="+58">🇻🇪 +58 Venezuela</option>
+                </select>
+                <input id="profile-phone-number" name="phoneNumber" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="Número de teléfono">
+              </div>
+            </div>
             <label>Dirección
               <input name="address" autocomplete="street-address">
             </label>
