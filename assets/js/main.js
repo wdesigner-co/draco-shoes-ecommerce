@@ -274,6 +274,7 @@ function bindGlobalEvents() {
       closeAccountMenus(control);
       menu.hidden = !shouldOpen;
       accountTrigger.setAttribute('aria-expanded', String(shouldOpen));
+      if (shouldOpen) menu.querySelector('[role="menuitem"]')?.focus();
       return;
     }
     if (!event.target.closest('[data-account-control]')) closeAccountMenus();
