@@ -18,14 +18,22 @@
             <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
           </button>
         </form>
-      <div class="header-session" data-session-indicator hidden>
-        <a class="header-session__role" href="perfil.html" data-session-role-link aria-label="Ir al perfil de cliente" title="Ir al perfil de cliente">
+      <div class="header-account" data-account-control>
+        <button class="header-icon header-account__trigger" type="button" data-account-trigger
+          aria-label="Iniciar sesión" aria-haspopup="true" aria-expanded="false" title="Iniciar sesión">
           <i class="fa-regular fa-user" data-session-role-icon aria-hidden="true"></i>
-          <span data-session-role>Cliente</span>
-        </a>
-        <button class="header-session__logout" type="button" data-auth-logout aria-label="Cerrar sesión" title="Cerrar sesión">
-          <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>
+          <span class="header-account__role" data-session-role hidden></span>
         </button>
+        <div class="header-account__menu" data-account-menu role="menu" hidden>
+          <a href="perfil.html" class="header-account__menu-item" data-session-destination role="menuitem">
+            <i class="fa-regular fa-id-card" aria-hidden="true"></i>
+            <span data-session-destination-label>Mi perfil</span>
+          </a>
+          <button type="button" class="header-account__menu-item" data-auth-logout role="menuitem">
+            <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>
+            <span>Cerrar sesión</span>
+          </button>
+        </div>
       </div>
       <a class="header-icon" href="favoritos.html" aria-label="Favoritos" data-nav-page="favorites">
         <i class="fa-regular fa-heart" aria-hidden="true"></i>
