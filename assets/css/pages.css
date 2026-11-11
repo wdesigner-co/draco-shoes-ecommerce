@@ -826,3 +826,59 @@ body[data-page=product] #add-to-cart{order:1}
     display: none;
   }
 }
+
+/* Draco Shoes 2.6 — prefijo telefónico y variantes visuales. */
+.phone-field{display:flex;min-width:0;flex-direction:column;gap:.42rem;color:var(--color-ink);font-size:.78rem;font-weight:700}
+.phone-input-group{display:grid;grid-template-columns:minmax(145px,.8fr) minmax(0,1.2fr);gap:.5rem;min-width:0}
+.phone-input-group select,.phone-input-group input{width:100%;min-width:0;min-height:46px;padding:.65rem .7rem;border:1px solid #dfe2e6;border-radius:var(--radius-sm);background:#fff;color:var(--color-ink);font:inherit;font-size:.78rem;font-weight:400}
+.phone-input-group select{padding-right:.35rem}
+@media(max-width:380px){.phone-input-group{grid-template-columns:minmax(124px,.9fr) minmax(0,1.1fr);gap:.35rem}.phone-input-group select,.phone-input-group input{padding-inline:.5rem;font-size:.7rem}}
+
+.product-detail__gallery{position:relative}
+.product-gallery__image-button{display:grid;width:100%;height:100%;place-items:center;padding:0;border:0;background:transparent;cursor:zoom-in}
+.product-gallery__image-button:focus-visible{outline:3px solid var(--color-primary);outline-offset:-4px}
+.product-gallery__nav{position:absolute;z-index:8;top:50%;display:grid;width:44px;height:44px;place-items:center;border:1px solid rgba(20,24,32,.1);border-radius:50%;background:rgba(255,255,255,.94);color:var(--color-ink);box-shadow:0 5px 18px rgba(17,22,30,.14);transform:translateY(-50%);cursor:pointer}
+.product-gallery__nav:hover{background:var(--color-ink);color:#fff}
+.product-gallery__nav--prev{left:.8rem}
+.product-gallery__nav--next{right:.8rem}
+@media(max-width:767px){.product-gallery__nav{display:none!important}}
+.product-lightbox{width:min(96vw,1320px);height:min(92dvh,900px);max-width:96vw;max-height:92dvh;margin:auto;padding:clamp(.8rem,2vw,1.4rem);overflow:hidden;border:0;border-radius:18px;background:#111318;color:#fff;box-shadow:0 24px 80px rgba(0,0,0,.45)}
+.product-lightbox::backdrop{background:rgba(5,7,11,.88);backdrop-filter:blur(5px)}
+.product-lightbox__content{position:relative;display:grid;width:100%;height:100%;grid-template-columns:48px minmax(0,1fr) 48px;grid-template-rows:38px minmax(0,1fr);align-items:center;gap:.6rem}
+.product-lightbox__top{grid-column:1/-1;display:flex;align-items:center;justify-content:center;min-width:0;padding-right:2.7rem;color:#d6d9df;font-size:.75rem;font-weight:700}
+.product-lightbox__close{position:absolute;z-index:3;top:0;right:0;display:grid;width:38px;height:38px;place-items:center;border:1px solid rgba(255,255,255,.16);border-radius:50%;background:rgba(255,255,255,.1);color:#fff;cursor:pointer}
+.product-lightbox__image-wrap{display:grid;min-width:0;min-height:0;width:100%;height:100%;grid-column:2;grid-row:2;place-items:center;margin:0}
+.product-lightbox__image-wrap img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;touch-action:pan-y}
+.product-lightbox__nav{display:grid;width:44px;height:44px;place-items:center;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:rgba(255,255,255,.1);color:#fff;cursor:pointer}
+.product-lightbox__nav:hover{background:#fff;color:#111318}
+.product-lightbox__nav--prev{grid-column:1;grid-row:2}
+.product-lightbox__nav--next{grid-column:3;grid-row:2}
+@media(max-width:767px){
+  .product-lightbox{width:100vw;height:100dvh;max-width:none;max-height:none;padding:max(.75rem,env(safe-area-inset-top)) .65rem max(.75rem,env(safe-area-inset-bottom));border-radius:0}
+  .product-lightbox__content{grid-template-columns:38px minmax(0,1fr) 38px;gap:.2rem}
+  .product-lightbox__nav{width:34px;height:34px}
+}
+.product-variant-selector{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:.55rem}
+.product-variant-option{display:flex;min-width:0;flex-direction:column;align-items:stretch;gap:.35rem;padding:.45rem;border:1px solid var(--color-line);border-radius:12px;background:#fff;color:var(--color-ink);text-align:left;cursor:pointer;transition:border-color var(--motion),box-shadow var(--motion),transform var(--motion)}
+.product-variant-option:hover{transform:translateY(-2px);border-color:#bdc4ce}
+.product-variant-option.is-selected{border:2px solid var(--color-primary);padding:calc(.45rem - 1px);box-shadow:0 0 0 2px rgba(201,66,28,.08)}
+.product-variant-option:focus-visible{outline:2px solid var(--color-primary);outline-offset:3px}
+.product-variant-option__image{display:grid;width:100%;height:66px;place-items:center;overflow:hidden;border-radius:8px;background:#f3f4f5}
+.product-variant-option__image img{width:100%;height:100%;object-fit:contain}
+.product-variant-option__meta{display:flex;align-items:center;gap:.35rem;min-width:0}
+.product-variant-option__swatch{width:12px;height:12px;flex:0 0 12px;border:1px solid rgba(0,0,0,.14);border-radius:50%;background:var(--swatch)}
+.product-variant-option__label{overflow:hidden;font-size:.63rem;font-weight:750;text-overflow:ellipsis;white-space:nowrap}
+.variant-gallery-note{margin:.45rem 0 0;color:var(--color-muted);font-size:.65rem;line-height:1.45}
+.variant-gallery-note[hidden]{display:none!important}
+@media(max-width:767px){.product-variant-selector{grid-template-columns:repeat(3,minmax(0,1fr));gap:.4rem}.product-variant-option{padding:.35rem}.product-variant-option__image{height:54px}.product-variant-option__label{font-size:.57rem}}
+
+.admin-variant-gallery-grid{display:grid;grid-template-columns:1fr;gap:.75rem;margin-top:.8rem}
+.admin-variant-gallery{min-width:0;margin:0;padding:.8rem;border:1px solid var(--color-line);border-radius:var(--radius-md);background:#fff}
+.admin-variant-gallery legend{padding:0 .3rem;font-size:.72rem;font-weight:800}
+.admin-variant-gallery__fields{display:grid;grid-template-columns:1fr;gap:.55rem}
+.admin-variant-gallery__fields label{display:flex;min-width:0;flex-direction:column;gap:.3rem;font-size:.65rem;font-weight:700}
+.admin-variant-gallery__fields input{width:100%;min-width:0;min-height:39px;padding:.5rem .6rem;font-size:.68rem}
+.admin-variant-gallery__fields img{width:100%;height:74px;object-fit:contain;border:1px solid var(--color-line);border-radius:7px;background:#f4f5f6}
+.admin-variant-gallery__fields img[hidden]{display:none!important}
+@media(min-width:600px){.admin-variant-gallery__fields{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:768px){.admin-variant-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
