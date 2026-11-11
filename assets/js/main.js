@@ -57,37 +57,59 @@ function getActiveSessionRole() {
   return null;
 }
 
-/** Refleja en el encabezado si navega un cliente o el administrador. */
+/** Cierra menús de cuenta abiertos, excepto el control indicado. */
+function closeAccountMenus(exceptControl = null) {
+  document.querySelectorAll('[data-account-control]').forEach((control) => {
+    if (control === exceptControl) return;
+    const menu = control.querySelector('[data-account-menu]');
+    const trigger = control.querySelector('[data-account-trigger]');
+    if (menu) menu.hidden = true;
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+  });
+}
+
+/** Mantiene visible el acceso y refleja el rol cuando hay una sesión demo. */
 function updateAuthSessionUI() {
   const role = getActiveSessionRole();
-  document.querySelectorAll('[data-session-indicator]').forEach((indicator) => {
-    indicator.hidden = !role;
-    indicator.classList.toggle('is-admin', role === 'admin');
-    indicator.classList.toggle('is-account', role === 'account');
-    const roleLabel = indicator.querySelector('[data-session-role]');
-    const roleIcon = indicator.querySelector('[data-session-role-icon]');
-    const roleLink = indicator.querySelector('[data-session-role-link]');
-    if (roleLabel) roleLabel.textContent = role === 'admin'
-      ? (window.matchMedia('(max-width: 767px)').matches ? 'Admin' : 'Administrador')
-      : 'Cliente';
+  document.querySelectorAll('[data-account-control]').forEach((control) => {
+    const trigger = control.querySelector('[data-account-trigger]');
+    const roleLabel = control.querySelector('[data-session-role]');
+    const roleIcon = control.querySelector('[data-session-role-icon]');
+    const destination = control.querySelector('[data-session-destination]');
+    const destinationLabel = control.querySelector('[data-session-destination-label]');
+    const menu = control.querySelector('[data-account-menu]');
+    const roleName = role === 'admin' ? 'Administrador' : 'Cliente';
+    const destinationUrl = role === 'admin' ? 'admin.html' : 'perfil.html';
+    const destinationText = role === 'admin' ? 'Panel de administración' : 'Mi perfil';
+
+    control.classList.toggle('is-admin', role === 'admin');
+    control.classList.toggle('is-account', role === 'account');
+    if (roleLabel) {
+      roleLabel.textContent = role ? roleName : '';
+      roleLabel.hidden = !role;
+    }
     if (roleIcon) roleIcon.className = role === 'admin'
       ? 'fa-solid fa-user-shield'
       : 'fa-regular fa-user';
-    if (roleLink && role) {
-      const destination = role === 'admin' ? 'admin.html' : 'perfil.html';
-      const accessibleLabel = role === 'admin'
-        ? 'Ir al panel de administración'
-        : 'Ir al perfil de cliente';
-      roleLink.href = destination;
-      roleLink.setAttribute('aria-label', accessibleLabel);
-      roleLink.title = accessibleLabel;
+    if (trigger) {
+      trigger.setAttribute('aria-label', role
+        ? 'Cuenta ' + roleName + '. Abrir opciones de cuenta'
+        : 'Iniciar sesión');
+      trigger.title = role ? roleName : 'Iniciar sesión';
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+    if (destination) {
+      destination.href = destinationUrl;
+      if (destinationLabel) destinationLabel.textContent = destinationText;
       if (document.body.dataset.page === (role === 'admin' ? 'admin' : 'profile')) {
-        roleLink.setAttribute('aria-current', 'page');
+        destination.setAttribute('aria-current', 'page');
       } else {
-        roleLink.removeAttribute('aria-current');
+        destination.removeAttribute('aria-current');
       }
     }
+    if (menu) menu.hidden = !role;
   });
+  closeAccountMenus();
 }
 
 /** Cierra el rol demo sin eliminar carrito, favoritos ni pedidos del navegador. */
@@ -237,6 +259,25 @@ function bindGlobalEvents() {
     const onboardingExit = event.target.closest('[data-onboarding-complete]');
     if (onboardingExit) markOnboardingAsSeen();
 
+    const accountTrigger = event.target.closest('[data-account-trigger]');
+    if (accountTrigger) {
+      event.preventDefault();
+      const role = getActiveSessionRole();
+      if (!role) {
+        openAuthDialog('account');
+        return;
+      }
+      const control = accountTrigger.closest('[data-account-control]');
+      const menu = control?.querySelector('[data-account-menu]');
+      if (!menu) return;
+      const shouldOpen = menu.hidden;
+      closeAccountMenus(control);
+      menu.hidden = !shouldOpen;
+      accountTrigger.setAttribute('aria-expanded', String(shouldOpen));
+      return;
+    }
+    if (!event.target.closest('[data-account-control]')) closeAccountMenus();
+
     const logoutTrigger = event.target.closest('[data-auth-logout]');
     if (logoutTrigger) {
       event.preventDefault();
@@ -300,6 +341,10 @@ function bindGlobalEvents() {
       const feedback = document.querySelector('[data-auth-feedback]');
       if (feedback) feedback.textContent = 'Google está disponible como elemento visual del prototipo. La conexión OAuth no está configurada.';
     }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeAccountMenus();
   });
 
   document.querySelector('#auth-form')?.addEventListener('submit', (event) => {
