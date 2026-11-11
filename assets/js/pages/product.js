@@ -128,7 +128,15 @@ export function initProduct() {
     gallery.insertAdjacentHTML('beforeend', galleryMarkup());
     activeGalleryIndex = 0;
     const newTrack = root.querySelector('[data-gallery-track]');
-    if (resetPosition && newTrack) newTrack.scrollLeft = 0;
+    if (newTrack) {
+      newTrack.addEventListener('scroll', () => {
+        if (!newTrack.clientWidth) return;
+        const index = Math.max(0, Math.min(galleryViews.length - 1, Math.round(newTrack.scrollLeft / newTrack.clientWidth)));
+        activeGalleryIndex = index;
+        activateDot(index);
+      }, { passive: true });
+      if (resetPosition) newTrack.scrollLeft = 0;
+    }
   };
 
   const renderVariantOptions = () => {
@@ -258,14 +266,6 @@ export function initProduct() {
     const dot = event.target.closest('[data-gallery-dot]');
     if (dot) scrollToGalleryImage(Number(dot.dataset.galleryDot));
   });
-
-  root.querySelector('[data-gallery-track]').addEventListener('scroll', () => {
-    const track = root.querySelector('[data-gallery-track]');
-    if (!track?.clientWidth) return;
-    const index = Math.max(0, Math.min(galleryViews.length - 1, Math.round(track.scrollLeft / track.clientWidth)));
-    activeGalleryIndex = index;
-    activateDot(index);
-  }, { passive: true });
 
   galleryDialog.querySelector('[data-lightbox-close]').addEventListener('click', () => galleryDialog.close());
   galleryDialog.querySelector('[data-lightbox-prev]').addEventListener('click', () => moveLightbox(-1));
