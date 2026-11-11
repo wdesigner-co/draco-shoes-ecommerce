@@ -344,7 +344,29 @@ function bindGlobalEvents() {
   });
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeAccountMenus();
+    if (event.key === 'Escape') {
+      const openMenu = document.querySelector('[data-account-menu]:not([hidden])');
+      closeAccountMenus();
+      if (openMenu) {
+        const trigger = openMenu.closest('[data-account-control]')?.querySelector('[data-account-trigger]');
+        trigger?.focus();
+      }
+      return;
+    }
+
+    if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
+    const control = event.target.closest('[data-account-control]');
+    if (!control) return;
+    const menu = control.querySelector('[data-account-menu]');
+    if (!menu || menu.hidden) return;
+    const items = [...menu.querySelectorAll('[role="menuitem"]')];
+    if (!items.length) return;
+    event.preventDefault();
+    const current = items.indexOf(document.activeElement);
+    const nextIndex = event.key === 'ArrowDown'
+      ? (current + 1) % items.length
+      : (current <= 0 ? items.length - 1 : current - 1);
+    items[nextIndex].focus();
   });
 
   document.querySelector('#auth-form')?.addEventListener('submit', (event) => {
