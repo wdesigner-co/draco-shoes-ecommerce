@@ -209,7 +209,6 @@ export function initProduct() {
     </section>`;
 
   renderVariantOptions();
-  renderGallery();
 
   const galleryDialog = createLightbox();
   const lightboxImage = galleryDialog.querySelector('[data-lightbox-image]');
